@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Fake News Detector | URLs
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+{% block body %}
+    <section id="headercontent" class="mt-5 pt-3">
+        <div style="text-align: center;">
+        <h1 style="font-weight: 900; font-size: 4rem;" class="mt-5">Detect Fake News <br> using News URL</h1>
+        <h3 class="mt-3">Paste Your Article link to check:</h3>
+        <p class="pb-4">Fake news detection by using news Article URL | Developed by Cyber Zombies</p>
+        <form action="{% url 'grover' %}" method="post" style="width: 100%; margin: 0 auto;">
+            {% csrf_token %}
+            <div class="row gy-5 d-inline-flex">
+            <div class="col-8 offset-2 offset-lg-0 col-lg-7">
+                <input type="url" name="news_url" class="form-control rounded-0 p-4 fs-5" style="width: 450px; flex-shrink: 1; flex-grow: 1;" placeholder="Enter URL of News Article">
+            </div>
+            <div class="col-8 offset-2 offset-lg-0 col-lg-5">
+                <input type="submit" value="Get Started >" class="btn rounded-0 p-4 fs-5 px-5" style="background-color: red;color: white;"/>
+            </div>
+            </div>
+        </form>
+        </div>
+    </section>
+    <div class="container mt-3">
+        {% if True %}
+            <h1 class="text-center text-success my-5" style="font-weight: 900;">{{formatted_response}}</h1>
+        {% endif %}
+    </div>
+{% endblock %}
