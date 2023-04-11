@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Fake News Detector
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center text-danger" style="font-weight: 900; font-family: 'Lato', sans-serif;">Fake News Detector 2023 Affairs*</h1>
+        <form action="{% url 'current' %}" method="post" style="width: 95%;margin: 0 auto;">
+            {% csrf_token %}
+            <label class="form-label mb-3 mt-3 d-block text-center">Check for the 2023 current Affairs or News</label>
+            <textarea name="fakenews" class="form-control p-3" cols="30" rows="9" placeholder="{% if prompt %}{{prompt}}{% else %}Copy and Paste the News Content to check whether the Content is Real or Fake...{% endif %}" maxlength="500" style="border: 3px solid orange;"></textarea>
+            <div class="text-center mt-5">
+                <input type="submit" value="Check for the Truth" class="btn btn-danger pb-2">
+            </div>
+        </form>
+    </div>
+    <div class="container mt-3">
+        {% if True %}
+            <h1 style="font-weight: 900;" class="text-center text-success">{{ formatted_response }}</h1>
+        {% endif %}
+    </div>
+{% endblock %}
