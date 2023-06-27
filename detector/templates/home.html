@@ -5,24 +5,31 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
-        <h1 class="text-center text-danger" style="font-weight: 900; font-family: 'Lato', sans-serif;">Fake News Detector*</h1>
-        <form action="{% url 'index' %}" method="post" style="width: 95%;margin: 0 auto;">
-            {% csrf_token %}
-            {% if prompt %}
-                <label class="form-label mb-3 mt-3 d-block text-center">{{prompt}}</label>
-            {% else %}
-                <label class="form-label mb-3 mt-3 d-block text-center">Fully Automated AI tool for Checking News Content Truthness</label>
-            {% endif %}
-            <textarea name="fakenews" class="form-control p-3" cols="30" rows="9" placeholder="{% if prompt %}{{prompt}}{% else %}Copy and Paste the News Content to check whether the Content is Real or Fake...{% endif %}" maxlength="500" style="border: 3px solid orange;"></textarea>
-            <div class="text-center mt-5">
-                <input type="submit" value="Check for the Truth" class="btn btn-danger pb-2">
+    <main class="header py-5">
+        <div class="container pt-5" style="background-color: white; border-radius: 10px;opacity: calc(90%);">
+            <div style="margin: 5px auto; width: 70%;">
+                <h1 class="text-center text-danger" style="font-weight: 900; font-family: 'Lato', sans-serif;">Fake News Detector*</h1>
+                
+                <form action="{% url 'index' %}" method="post" style="width: 95%;margin: 0 auto;">
+                    {% csrf_token %}
+                    {% if prompt %}
+                        <label class="form-label mb-5 mt-3 d-block text-center">Recent Search: {{prompt}}</label>
+                    {% else %}
+                        <label class="form-label mb-5 mt-3 d-block text-center">Fully Automated Open AI tool for Checking News Content Truthness till 2021</label>
+                    {% endif %}
+                    <textarea name="fakenews" class="form-control p-3" cols="30" rows="5" placeholder="Copy and Paste the News Content to check whether the Content is Real or Fake..." maxlength="500" style="border: 2px solid black;"></textarea>
+                    <div class="text-center mt-5 pb-5">
+                        <input type="submit" value="Check for the Truth" class="btn btn-danger pb-2">
+                    </div>
+                </form>
+    
+                <div class="container my-3 pb-5">
+                    {% if True %}
+                        <h3 style="font-weight: 900;" class="text-center text-success" id="typing">{{ formatted_response }}</h3>
+                        <p class="text-center text-success">{{evidence}}</p>
+                    {% endif %}
+                </div>
             </div>
-        </form>
-    </div>
-    <div class="container mt-3">
-        {% if True %}
-            <h1 style="font-weight: 900;" class="text-center text-success">{{ formatted_response }}</h1>
-        {% endif %}
-    </div>
+        </div>
+    </main>
 {% endblock %}

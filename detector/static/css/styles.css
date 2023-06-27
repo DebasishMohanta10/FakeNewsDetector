@@ -9,6 +9,22 @@ body{
     font-family: 'Lato', sans-serif;
 }
 
+.header{
+    background-image: url('/static/images/bg1.jpg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    opacity: calc(100%);
+}
+
+.header1{
+    background-image: url('/static/images/bg3.jpg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    opacity: calc(100%);
+}
+
 header div h1{
     font-size: 60px;
 }

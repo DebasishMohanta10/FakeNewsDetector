@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Fake News Detector
+{% endblock %}
+
+{% block body %}
+    <main class="header py-5">
+        <div class="container pt-5" style="background-color: white; border-radius: 10px;opacity: calc(90%);">
+            <div style="margin: 5px auto; width: 70%;">
+                <h1 class="text-center text-danger" style="font-weight: 900; font-family: 'Lato', sans-serif;">Fake News Neutralizer</h1>
+                
+                <form action="{% url 'neutralizer' %}" method="post" style="width: 95%;margin: 0 auto;">
+                    {% csrf_token %}
+                    {% if prompt %}
+                        <label class="form-label mb-5 mt-3 d-block text-center">Recent Search: {{prompt}}</label>
+                    {% else %}
+                        <label class="form-label mb-5 mt-3 d-block text-center">Social Media Checker</label>
+                    {% endif %}
+                    <textarea name="fakenews" class="form-control p-3" cols="30" rows="5" placeholder="Searching Content in Social Media" maxlength="500" style="border: 2px solid black;"></textarea>
+                    <div class="text-center mt-5 pb-5">
+                        <input type="submit" value="Check for Resources" class="btn btn-danger pb-2">
+                    </div>
+                </form>
+    
+                <div class="container my-3 pb-5">
+                    {% if True %}
+                        {% for post in posts %}
+                        <div class="row d-flex align-items-center">
+                            <div class="col-8">
+                                <div class="my-3">
+                                    <h5><span style="font-weight: bold;">Source :</span>{{post.network}}</h5>
+                                    <p>Date and Time: {{post.posted}}</p>
+                                    <p>Text: {{post.text}}</p>
+                                    <p>Sentiment: {{post.sentiment}}</p>
+                                    <p>URL: {{post.url}}</p>
+                                </div>
+                            </div>
+
+                            <div class="col-3 offset-1">
+                                {% if post.network == "facebook" %}
+                                    <form action="" method="post" method="post">
+                                        {% csrf_token %}
+                                        <input type="text" name="reason" class="form-control mb-3 p-3" style="box-sizing: border-box;" placeholder="Give Reason">
+                                        <div class="text-left">
+                                            <input type="submit" value="Mitigate" class="btn btn-primary">
+                                        </div>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

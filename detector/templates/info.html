@@ -5,170 +5,55 @@
 {% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@700&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
-    <header class="py-3" style="height: 60vh; background-color: brown;">
+    <main class="bg-light">
         <div class="container">
-            <hr class="text-light">
-            <div class="w-75">
-                <h1 class="text-light" style="font-weight: 900;">We have put together a special combination of strategy, and made the News detection Web Application.</h1>
-            </div>
-            <div class="row gx-5 gy-5">
-                <div class="col-sm-12 col-md-6">
-
+            <div class="row">
+                <div class="col mt-3 d-grid align-items-center" style="height: 90vh;">
+                    <div style="width: 80%; margin: 0 auto;">
+                        <div style="width: 200px;" class="ms-3 mb-3">
+                            <img src="{% static 'images/header.png' %}" alt="" class="img-fluid">
+                        </div>
+                        <h1 style="font-weight: 900; letter-spacing: 2px;"><span class="text-danger">Innovative.</span><span class="text-success">Ambitious.</span><br> & Focused.</h1>
+                        <p class="">Our team is composed of experienced and dedicated professionals who bring a wealth of knowledge and skills to their respective roles.</p>
+                        <div class="mt-5">
+                            <a href="" class="btn btn-lg btn-dark pb-2 border-radius-0">Contact Our Team</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col pt-5">
+                    <img src="{% static 'images/team.png' %}" alt="" class="img-fluid">
                 </div>
 
-                <div class="col-sm-12 offset-md-1 col-md-5">
-                    <img src="{% static '/images/3679595.jpg' %}" alt="" class="img-fluid">
-                </div>
             </div>
         </div>
-    </header>
+    </main>
+    <section>
+        <div class="container py-5 mt-5">
+            <h5 class="text-center mb-3" style="font-weight: 900;">Meet our <span class="text-danger">Team Members</span></h5>
+            <p class="text-center mb-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, libero.</p>
 
-    <section class="pt-5 mt-5">
-        <div class="container pt-5 my-5">
-            <p class="my-5 title--text">Our Story</p>
-            <div class="w-75">
-                <h3 class="text-secondary mb-5">In the science-a-thon hackathon, a team of 6 students came together to tackle the issue of fake news. They brainstormed and decided to create a web application that could detect and flag fake news articles using AI models. The team worked tirelessly, researching and experimenting with various algorithms and techniques to build a robust and accurate system. Finally, after hours of coding, testing, and refining, they had a functional prototype ready. The web application was user-friendly, intuitive, and had an impressive accuracy rate in detecting fake news articles. The team presented their creation to the judges and received enthusiastic feedback. They were thrilled to have developed a tool that could make a difference in the fight against misinformation.</h3>
-            </div>
-        </div>
-
-        <div>
-            <img src="{% static 'images/concept-fake-news.jpg' %}" alt="" class="img-fluid">
-        </div>
-
-        <div class="container my-5 py-5">
-            <p class="my-5 title--text">Our Values</p>
-            <div class="w-50 my-5">
-                <h4 style="font-size: 2.2rem;">Here are our four guidelines we sticks to protect you in these shifting environments.</h4>
-            </div>
-
-            <div class="row gx-5 gy-1 my-5">
-                <div class="col-md-5 col-sm-12">
-                    <h3 class="title">We have a strong passion.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus beatae esse maiores quaerat repellendus magnam dolores quae fuga recusandae iusto.</p>
-                </div>
-
-                <div class="col-md-5 offset-md-2 col-sm-12">
-                    <h3 class="title">We enjoy learning.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus beatae esse maiores quaerat repellendus magnam dolores quae fuga recusandae iusto.</p>
-                </div>
-            </div>
-
-            <div class="row gx-5 gy-5">
-                <div class="col-md-5 col-sm-12">
-                    <h3 class="title">We leave egos at the door.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus beatae esse maiores quaerat repellendus magnam dolores quae fuga recusandae iusto.</p>
-                </div>
-
-                <div class="col-md-5 offset-md-2 col-sm-12">
-                    <h3 class="title">We support one another.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus beatae esse maiores quaerat repellendus magnam dolores quae fuga recusandae iusto.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-dark pt-5">
-            <div class="container">
-                <p class="my-5 title--text">Meet the team</p>
-                <div class="w-50 my-5">
-                    <h4 style="font-size: 2.2rem;" class="text-light">Meet multi-talented people who are passionate about their craft.</h4>
-                </div>
-                <div class="row gx-5 gy-5 my-5">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="card shadow-lg hoverable">
-                            <img src="{% static 'images/debasish_mohanta_lipun.jpg' %}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title text-center">Debasish Mohanta</h5>
-                              <p class="card-text text-center">Lorem ipsum dolor sit amet.</p>
-                            </div>
+            <div class="row pt-5">
+                {% for team in teams %}
+                    <div class="col-3">
+                        <div class="mx-auto mb-4" style="width:150px;">
+                            <img src="/static/team/{{team.id}}.jpg" alt="" class="img-fluid" style="border-radius: 50%; border: 10px solid brown;">
+                        </div>
+                        <div>
+                            <h4 class="text-center text-primary" style="font-weight: bold;">{{team.name}}</h4>
+                            <p class="text-center">{{team.bio}}</p>
+                        </div>
+                        <div class="text-center">
+                            <a href="{{team.url}}" target="_blank" class="btn btn-sm btn-primary">Linkedin Profile</a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-12">
-                        <div class="card shadow-lg hoverable">
-                            <img src="{% static 'images/debasish_mohanta_lipun.jpg' %}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title text-center">Debasish Mohanta</h5>
-                              <p class="card-text text-center">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <div class="card shadow-lg hoverable">
-                            <img src="{% static 'images/debasish_mohanta_lipun.jpg' %}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title text-center">Debasish Mohanta</h5>
-                              <p class="card-text text-center">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row gx-5 gy-5 my-5">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="card shadow-lg hoverable">
-                            <img src="{% static 'images/debasish_mohanta_lipun.jpg' %}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title text-center">Debasish Mohanta</h5>
-                              <p class="card-text text-center">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <div class="card shadow-lg hoverable">
-                            <img src="{% static 'images/debasish_mohanta_lipun.jpg' %}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title text-center">Debasish Mohanta</h5>
-                              <p class="card-text text-center">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <div class="card shadow-lg hoverable">
-                            <img src="{% static 'images/debasish_mohanta_lipun.jpg' %}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title text-center">Debasish Mohanta</h5>
-                              <p class="card-text text-center">Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {% endfor %}
             </div>
-            <div class="mt-5 pt-5">
-
-            </div>
-            
         </div>
     </section>
-    <footer style="background-color: #543d32;padding-top: 100px;display: grid;align-items: center;">
-        <div class="">
-            <div>
-                <h1 style="font-family: 'Schibsted Grotesk', sans-serif;width:60%;font-size: 90px;color: white;padding-left:90px">Let's start <br> something new together</h1>
-            </div>
-            <hr style="color: white;height: 3px; width:95% ;margin: 100px auto 10px auto;">
-    
-            <div style="display:flex;justify-content: space-between;color: white;">
-                <div style="display: flex;">
-                    <div >
-                        <h4 style="margin-left:50px;">Home</h4>
-                    </div>
-                    <div>
-                        <h4 style="margin-left:50px;">URL</h4>
-                    </div>
-                    <div>
-                        <h4 style="margin-left:50px;">About</h4>
-                    </div>
-                </div>
-                
-                <div>
-                    <p style="margin-right: 50px;">Developed By CyberZombies</p>
-                </div>
-            </div>
-           
-        </div>
-    </footer>
+
+
 {% endblock %}

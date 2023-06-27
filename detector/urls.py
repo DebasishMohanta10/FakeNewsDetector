@@ -6,5 +6,7 @@ urlpatterns = [
     path("info/",views.info,name="info"),
     path("url/",views.grover,name="grover"),
     path("current-affair/",views.current_affair,name="current"),
+    path("neutralizer/",views.neutralizer,name="neutralizer"),
+    path("fb/",views.facebook,name="facebook"),
 ]
 
