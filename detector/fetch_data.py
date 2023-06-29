@@ -16,7 +16,7 @@ def fetch_data(query):
         "textFormat": "HTML",
     }
     headers = {
-        "Ocp-Apim-Subscription-Key": "24c66d5350574ccbac87db7c494e220e"
+        "Ocp-Apim-Subscription-Key": "Your Azure Bing news API KEY"
     }
 
     # Send a GET request to the API endpoint with the query parameters
